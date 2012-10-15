@@ -1,0 +1,10 @@
+Package: com.bensge.facebookfolder
+Name: FacebookFolder
+Depends: mobilesubstrate
+Version: 0.0.1-23
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: bensge
+Author: bensge
+Section: Tweaks
+Installed-Size: 32
