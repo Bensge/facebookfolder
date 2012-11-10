@@ -1,10 +1,13 @@
 Package: com.bensge.facebookfolder
 Name: FacebookFolder
 Depends: mobilesubstrate
-Version: 0.0.1-23
-Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
-Maintainer: bensge
-Author: bensge
+Version: 0.0.1-30
 Section: Tweaks
-Installed-Size: 32
+Architecture: iphoneos-arm
+Author: Bensge
+Maintainer: Bensge
+Size: 9606
+Description: Long-hold on Facebook app icon to reveal Facebook in a folder! Still alpha, don't expect too much ;)
+MD5sum: d5eb5d15ae92833b396cc658b34795ab
+Filename: ./debs/com.bensge.facebookfolder_0.0.1-23_iphoneos-arm.deb
+Installed-Size: 28

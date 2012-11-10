@@ -33,7 +33,7 @@ static UIWebView *webView;
 	if ([[[self icon] applicationBundleID] isEqualToString:FACEBOOK_APP_ID] && ! [[%c(SBIconController) sharedInstance] isEditing]){
         isAnimating = YES;
 		[self openFacebookFolder];
-        [[[UIAlertView alloc] initWithTitle:@"Position" message:[NSString stringWithFormat:@"%i",[self frame].origin.y] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        //[[[UIAlertView alloc] initWithTitle:@"Position" message:[NSString stringWithFormat:@"%i",[self frame].origin.y] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 	}
     else {
         %orig;
@@ -66,27 +66,15 @@ static UIWebView *webView;
     lower.image = lowerImage;
 
     containerWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    containerWindow.windowLevel = 30000;
+    containerWindow.windowLevel = [[UIApplication sharedApplication] keyWindow].windowLevel + 1;
     containerWindow.backgroundColor = [UIColor viewFlipsideBackgroundColor];
     [containerWindow makeKeyAndVisible];
-
-    UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(0,240,320,40)];
-    l.text = @"This folder was created by @bensge!";
-    l.textColor = [UIColor whiteColor];
-    l.font = [UIFont systemFontOfSize:18.0f];
-    l.backgroundColor = [UIColor clearColor];
-    l.textAlignment = UITextAlignmentCenter;
-    [containerWindow addSubview:l];
-    [l release];
-
-    if (webView != nil){
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,110,320,300)];
-        [containerWindow addSubview:webView];
-        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://facebook.com"]]];
-    }
-    else {
-        [webView reload];
-    }
+    
+    
+    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,110,320,300)];
+    [containerWindow addSubview:webView];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://facebook.com"]]];
+    
 
     UITapGestureRecognizer *reco = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeFacebookFolder)];
     [containerWindow addGestureRecognizer:reco];
